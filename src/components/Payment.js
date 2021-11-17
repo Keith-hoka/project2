@@ -11,7 +11,7 @@ import "./Payment.css";
 
 function Payment() {
   const history = useHistory();
-  const [{ cart, user }] = useStateValue();
+  const [{ cart, user }, dispatch] = useStateValue();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -34,6 +34,8 @@ function Payment() {
     getClientSecret();
   }, [cart]);
 
+console.log('THE SECRET IS >>>', clientSecret)
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setProcessing(true);
@@ -46,6 +48,10 @@ function Payment() {
       setSucceeded(true);
       setError(null);
       setProcessing(false);
+
+      dispatch({
+        type: "EMPTY_CART",
+      });
 
       history.replace("/orders");
     });
