@@ -1,0 +1,76 @@
+.header {
+  background-color: #131921;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 100px;
+}
+
+.header-logo {
+  height: 100px;
+  object-fit: contain;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.header-search {
+  display: flex;
+  flex: 1;
+}
+
+.header-searchIcon {
+  background-color: #cd9042;
+  padding: 5px;
+  height: 32px !important;
+  width: 32px !important;
+}
+
+.header-searchInput {
+  height: 22px;
+  padding: 10px;
+  border: none;
+  width: 100%;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header-link {
+  color: white;
+  text-decoration: none;
+}
+
+.header-option {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.header-option-line1 {
+  font-size: 15px;
+}
+
+.header-option-line2 {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.header-opiton-cart {
+  display: flex;
+  align-items: center;
+}
+
+.header-option-cart > .MuiSvgIcon-root {
+  font-size: 40px;
+}
+
+.header-cart-count {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+}
