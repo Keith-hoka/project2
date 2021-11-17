@@ -34,7 +34,7 @@ function Header() {
             <span className="header-option-line2">{user ? "Sign Out" : "Sign In"}</span>
           </div>
         </Link>
-        <Link to="/" className="header-link">
+        <Link to="/orders" className="header-link">
           <div className="header-option">
             <span className="header-option-line1">Returns</span>
             <span className="header-option-line2">& Orders</span>

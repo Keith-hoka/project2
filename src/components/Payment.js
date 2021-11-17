@@ -5,6 +5,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "./axios";
 
 import CheckoutProduct from "./CheckoutProduct";
+import { db } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { getCartTotal } from "./reducer";
 import "./Payment.css";
@@ -34,8 +35,6 @@ function Payment() {
     getClientSecret();
   }, [cart]);
 
-console.log('THE SECRET IS >>>', clientSecret)
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setProcessing(true);
@@ -45,6 +44,17 @@ console.log('THE SECRET IS >>>', clientSecret)
         card: elements.getElement(CardElement),
       },
     }).then(({ paymentIntent }) => {
+      db
+        .collection("users")
+        .doc(user?.uid)
+        .collection("orders")
+        .doc(paymentIntent.id)
+        .set({
+          cart: cart,
+          amount: paymentIntent.amount,
+          created: paymentIntent.created,
+        });
+
       setSucceeded(true);
       setError(null);
       setProcessing(false);
@@ -104,9 +114,7 @@ console.log('THE SECRET IS >>>', clientSecret)
               <div className="payment-priceContainer">
                 <CurrencyFormat
                   renderText={(value) => (
-                    <>
-                      <h3>Total: {value}</h3>
-                    </>
+                    <h3>Total: {value}</h3>
                   )}
                   decimalScale={2}
                   value={getCartTotal(cart)}

@@ -4,7 +4,7 @@ import 'animate.css';
 import { useStateValue } from "./StateProvider";
 import "./CheckoutProduct.css";
 
-function CheckoutProduct({ id, title, image, price, rating }) {
+function CheckoutProduct({ id, title, image, price, rating, hideButton }) {
   const [{ cart }, dispatch] = useStateValue();
   console.log(cart);
 
@@ -30,8 +30,9 @@ function CheckoutProduct({ id, title, image, price, rating }) {
         <div className="checkoutProduct-rating">
           {Array(rating).fill().map((_) => (<p>⭐</p>))}
         </div>
-
-        <button onClick={removeFromCart}>Remove from Cart</button>
+        {!hideButton && (
+          <button onClick={removeFromCart}>Remove from Cart</button>
+        )}
       </div>
     </div>
   );

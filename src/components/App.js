@@ -16,7 +16,7 @@ import { Elements } from "@stripe/react-stripe-js";
 const promise = loadStripe("pk_test_51JnFoXFPWQ7X0DS9OqekhyT3fo3Fj3ATaZlLHk9xLM6aakj8WPlKt7AIf1sLxqexnYAL8fZ4ppVSa2dxUJcjoWMm00xasskY2f");
 
 function App() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -35,8 +35,6 @@ function App() {
 
     return () => { unsubscribe() };
   }, [dispatch]);
-
-  console.log(user);
 
   return (
     <Router>
