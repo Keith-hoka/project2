@@ -4,6 +4,11 @@
   margin-bottom: 20px;
 }
 
+.checkoutProduct-image:hover {
+  animation: headShake;
+  animation-duration: 3s;
+}
+
 .checkoutProduct-image {
   object-fit: contain;
   width: 180px;

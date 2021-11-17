@@ -1,4 +1,5 @@
 import React from "react";
+import 'animate.css';
 /*import { makeStyles } from '@material-ui/core/styles';
 import { Rating } from '@material-ui/lab';
 import Box from '@material-ui/core/Box';*/

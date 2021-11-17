@@ -12,6 +12,11 @@
   z-index: 1;
 }
 
+.product:hover {
+  animation: pulse;
+  animation-duration: 1s;
+}
+
 .product-info {
   height: 100px;
   margin-bottom: 15px;

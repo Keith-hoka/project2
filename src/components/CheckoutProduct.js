@@ -1,4 +1,5 @@
 import React from "react";
+import 'animate.css';
 
 import { useStateValue } from "./StateProvider";
 import "./CheckoutProduct.css";
