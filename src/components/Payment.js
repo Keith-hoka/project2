@@ -75,7 +75,7 @@ function Payment() {
   return (
     <div className="payment">
       <div className="payment-container">
-        <h1>Checkout (<Link to="/checkout">{cart.length} items</Link>)</h1>
+        <h1>Checkout (<Link to="/checkout">{cart.length} {(cart.length === 1)? "Item" : "Itmes"}</Link>)</h1>
 
         <div className="payment-section">
           <div className="payment-title">

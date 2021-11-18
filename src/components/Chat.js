@@ -1,5 +1,4 @@
 import React, { useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
 import { Avatar, IconButton } from "@material-ui/core";
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import SearchIcon from '@material-ui/icons/Search';
@@ -15,31 +14,32 @@ import "./Chat.css";
 function Chat(props) {
   const [seed, setSeed] = useState("");
   const [input, setInput] = useState("");
-  const { roomId } = useParams();
-  const [roomName, setRoomName] = useState("");
+  const [userName, setUserName] = useState("");
   const [messages, setMessages] = useState([]);
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
+  console.log(user);
 
   useEffect(() => {
-    if (roomId) {
-      db.collection("rooms").doc(roomId).onSnapshot(snapshot =>
-        setRoomName(snapshot.data().name));
+    if (user) {
+      // db.collection("users").doc(user.uid).onSnapshot(snapshot =>
+      //   setUserName(snapshot.data().name));
+      setUserName(user.email);
 
-      db.collection("rooms").doc(roomId).collection("messages").orderBy("timestamp","asc").onSnapshot(snapshot => setMessages(snapshot.docs.map(doc => doc.data())));
+      db.collection("users").doc(user.uid).collection("messages").orderBy("timestamp","asc").onSnapshot(snapshot => setMessages(snapshot.docs.map(doc => doc.data())));
 
     }
-  }, [roomId]);
+  }, []);
 
   useEffect(() => {
     setSeed(Math.floor(Math.random() * 5000));
-  }, [roomId]);
+  }, []);
 
   const sendMessage = (event) => {
     event.preventDefault();
 
-    db.collection('rooms').doc(roomId).collection('messages').add({
+    db.collection('users').doc(user.uid).collection('messages').add({
         message: input,
-        name: user.displayName,
+        name: user.email,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
@@ -52,7 +52,7 @@ function Chat(props) {
         <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
 
         <div className="chat-headerInfo">
-          <h3>{roomName}</h3>
+          <h3>{userName}</h3>
           <p>
            Last seen {" "}
            {new Date(messages[messages.length - 1]?.timestamp?.toDate()).toUTCString()}
@@ -76,7 +76,7 @@ function Chat(props) {
 
       <div className="chat-body">
         {messages.map(message => (
-          <p className={`chat-message ${ message.name === user.displayName && 'chat-receiver'}`}>
+          <p className={`chat-message ${ message.name === user.email && 'chat-receiver'}`}>
             <span className="chat-name">{message.name}</span>
             {message.message}
             <span className="chat-timestamp">

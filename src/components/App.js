@@ -61,7 +61,7 @@ function App() {
           </Route>
           <Route path="/chat">
             <Header />
-            <Chat />
+            {!user ? <Login /> : <Chat />}
           </Route>
           <Route path="/">
             <Header />
