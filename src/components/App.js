@@ -44,7 +44,11 @@ function App() {
   return (
     <Router>
       <div className="app">
+      
         <Switch>
+          <Route path="/create-product">
+            <NewProductForm />
+          </Route>
           <Route path="/checkout">
             <Header />
             <Checkout />
@@ -72,9 +76,13 @@ function App() {
           <Route path="/">
             <Header />
             <Home />
-          </Route>
-
+            <ProductContextProvider>
+            <NewProductForm />
+          <ProductList />
+          </ProductContextProvider>
+          </Route>          
         </Switch>
+
       </div>
     </Router>
   );

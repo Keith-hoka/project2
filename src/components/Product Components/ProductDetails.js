@@ -1,14 +1,25 @@
 import React, { useContext } from "react";
-import { ProductContext } from "../Context/ProductContext";
+import { db } from "../firebase";
+
 
 const ProductDetails = ({ product }) => {
-    const { removeProduct } = useContext(ProductContext)
+
+    const currentProduct = {
+        title: product.title,
+        image: product.image,
+        price: product.price,
+        rating: product.rating,
+        id: product.id
+    }
+
     return (
-        <li onCLick={() => removeProduct(product.id)}>
+        <li>
             <div className="title">{product.title}</div>
-            <div className="image"><img src={product.image} alt="Product Preview Unavailable"></img></div>
-            <div className="price">{product.price}</div>
+            <div className="image"><img src={product.image} alt="Product Preview Unavailable" /></div>
+            <div className="price">${product.price}</div>
             <div className="rating">{product.rating}</div>
+            <button>Add To Cart</button>
+            <button onClick={() => {db.collection('products').doc(currentProduct.id).delete()}}>Remove Product</button>
         </li>
     )
 }
