@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 
 import Product from "./Product";
+import { db } from "./firebase";
 import "./Home.css";
 
 function Home() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    db.collection("users").get().then(snapshot => {
+      let productsArr = [];
+      snapshot.forEach(doc => {
+        productsArr = productsArr.concat(doc.data().products)
+      })
+    setProducts(productsArr);
+  })}, []);
+
   return (
     <div className="home">
       <AliceCarousel
@@ -27,6 +39,19 @@ function Home() {
         <img className="home-image" src="https://m.media-amazon.com/images/I/711Y9Al9RNL._SX3000_.jpg" alt="" />
         <img className="home-image" src="https://m.media-amazon.com/images/I/71qid7QFWJL._SX3000_.jpg" alt="" />
       </AliceCarousel>
+
+      <div className="home-row">
+        {products.length > 0 && products.map(
+          product =>
+            (<Product
+              id={product.id}
+              title={product.title}
+              price={product.price}
+              rating={Number(product.rating)}
+              image={product.image}
+            />)
+        )}
+      </div>
 
       <div className="home-row">
         <Product

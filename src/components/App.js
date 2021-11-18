@@ -14,9 +14,7 @@ import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import ProductList from "./Product Components/ProductList";
-import ProductContextProvider from "./Context/ProductContext";
-import NewProductForm from "./Product Components/ProductForm";
+import ProductForm from "./ProductForm";
 
 const promise = loadStripe("pk_test_51JnFoXFPWQ7X0DS9OqekhyT3fo3Fj3ATaZlLHk9xLM6aakj8WPlKt7AIf1sLxqexnYAL8fZ4ppVSa2dxUJcjoWMm00xasskY2f");
 
@@ -45,6 +43,10 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
+          <Route path="/create-product">
+            <Header />
+            <ProductForm />
+          </Route>
           <Route path="/checkout">
             <Header />
             <Checkout />

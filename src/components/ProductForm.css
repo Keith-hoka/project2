@@ -1,0 +1,22 @@
+.product-formContainer {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: lightblue;
+}
+
+.product-button {
+  background: #f0c14b !important;
+  border: 1px solid !important;
+  border-color: #a88734 #9c7e31 #846a29 !important;
+  text-transform: inherit !important;
+  margin-left: 30px !important;
+}
