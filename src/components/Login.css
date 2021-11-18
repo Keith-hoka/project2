@@ -65,8 +65,9 @@
   border: 1px solid !important;
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
-  margin-bottom: 10px;
+  margin-bottom: 15px !important;
   text-transform: inherit !important;
+
 }
 
 .login-signUpBtn1 {

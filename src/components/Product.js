@@ -8,6 +8,7 @@ import { useStateValue } from "./StateProvider";
 function Product({ id, title, price, rating, image }) {
   const [{ cart }, dispatch] = useStateValue();
   console.log(cart);
+  console.log(rating)
 
   const addToCart = () => {
     dispatch({
@@ -16,8 +17,8 @@ function Product({ id, title, price, rating, image }) {
         id: id,
         title: title,
         image: image,
-        price: price,
-        rating: rating,
+        price: Number(price),
+        rating: Number(rating),
       }
     });
   };

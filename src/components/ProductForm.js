@@ -35,8 +35,8 @@ const ProductForm = () => {
               id: Math.random(),
               title: title,
               image: image,
-              price: price,
-              rating: rating,
+              price: Number(price),
+              rating: Number(rating),
             }]
           })});
 
