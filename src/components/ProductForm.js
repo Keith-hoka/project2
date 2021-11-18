@@ -23,9 +23,8 @@ const ProductForm = () => {
 
     db.collection("users").get(user?.uid).then(snapshot => {
       snapshot.forEach(doc => {
-        if (doc.data().products.length){
+        if (doc.data().products !== undefined){
           productsArr = productsArr.concat(doc.data().products);
-          console.log(productsArr);
         }
       }
     )})

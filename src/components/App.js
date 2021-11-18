@@ -45,7 +45,7 @@ function App() {
         <Switch>
           <Route path="/create-product">
             <Header />
-            <ProductForm />
+            {!user ? <Login /> : <ProductForm />}
           </Route>
           <Route path="/checkout">
             <Header />
