@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 import { useStateValue } from "./StateProvider";
+import Location from "./Location";
 import { auth } from "./firebase";
 import "./Header.css";
 
@@ -21,6 +23,14 @@ function Header() {
       <Link to="/">
         <img className="header-logo" src="../GAMAZON.gif" alt="" />
       </Link>
+
+      <div className="header-location">
+        <LocationOnIcon />
+        <div className="header-option">
+          <span className="header-option-line1">Deliver to</span>
+          <span className="header-option-line2"><Location /></span>
+        </div>
+      </div>
 
       <div className="header-search">
         <input className="header-searchInput" />

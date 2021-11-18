@@ -42,7 +42,7 @@ function SignUp() {
           <button onClick={handleSignUp} className="login-signUpBtn">Create your GAmazon account</button>
         </form>
 
-        <p>By signing-in you agree to GAmazon's Conditions of Use & Sale. Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.</p>
+        <p>By creating an account you agree to GAmazon's Conditions of Use & Sale. Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.</p>
       </div>
     </div>
   );

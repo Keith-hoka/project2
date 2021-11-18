@@ -44,6 +44,18 @@
   text-decoration: none;
 }
 
+.header-location {
+  color: white;
+  text-decoration: none;
+  display: flex !important;
+  flex-direction: row !important;
+  margin-top: 7px;
+}
+
+.header-location > .MuiSvgIcon-root {
+  margin-top: 8px;
+}
+
 .header-option {
   display: flex;
   flex-direction: column;
