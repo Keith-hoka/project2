@@ -33,7 +33,7 @@ function Orders() {
       <h1>Your Orders</h1>
       <div className="orders-container">
         {orders?.map(order => (
-          <Order order={order} />
+          <Order key={Math.random()} order={order} />
         ))}
       </div>
     </div>

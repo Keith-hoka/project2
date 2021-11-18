@@ -23,6 +23,7 @@ function Checkout() {
             <h3>Hello, {user?.email}</h3>
             <h2 className="checkout-title">Your Shopping Cart</h2>
             {cart.map(item => (<CheckoutProduct
+              key={item.id}
               id={item.id}
               title={item.title}
               image={item.image}

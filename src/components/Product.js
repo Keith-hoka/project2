@@ -35,7 +35,7 @@ function Product({ id, title, price, rating, image }) {
           <strong>{price}</strong>
         </p>
         <div className="product-rating">
-          {Array(rating).fill().map((_) => (<p>⭐</p>))}
+          {Array(rating).fill().map((_) => (<p key={Math.random()}>⭐</p>))}
         </div>
       </div>
 

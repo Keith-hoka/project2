@@ -16,6 +16,7 @@ function Order({ order }) {
 
       {order.data.cart?.map(cartItem => (
         <CheckoutProduct
+          key={cartItem.id}
           id={cartItem.id}
           title={cartItem.title}
           image={cartItem.image}

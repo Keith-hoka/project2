@@ -28,7 +28,7 @@ function Chat(props) {
       db.collection("users").doc(user.uid).collection("messages").orderBy("timestamp","asc").onSnapshot(snapshot => setMessages(snapshot.docs.map(doc => doc.data())));
 
     }
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     setSeed(Math.floor(Math.random() * 5000));

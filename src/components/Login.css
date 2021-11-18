@@ -42,6 +42,11 @@
   font-size: 12px;
 }
 
+.login-container > .login-newUser {
+  text-align: center;
+  color: #767676;
+}
+
 .login-signInBtn {
   background: #f0c14b;
   border-radius: 2px;
@@ -52,7 +57,7 @@
   border-color: #a88734 #9c7e31 #846a29;
 }
 
-.login-signUpBtn {
+.login-signUpBtn1 {
   border-radius: 2px;
   width: 100%;
   height: 30px;

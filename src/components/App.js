@@ -7,6 +7,7 @@ import Home from "./Home";
 import Checkout from "./Checkout";
 import Payment from "./Payment";
 import Login from "./Login";
+import SignUp from "./SignUp";
 import Orders from "./Orders";
 import Chat from "./Chat";
 import { useStateValue } from "./StateProvider";
@@ -58,6 +59,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
           </Route>
           <Route path="/chat">
             <Header />

@@ -28,7 +28,7 @@ function CheckoutProduct({ id, title, image, price, rating, hideButton }) {
         </p>
 
         <div className="checkoutProduct-rating">
-          {Array(rating).fill().map((_) => (<p>⭐</p>))}
+          {Array(rating).fill().map((_) => (<p key={Math.random()}>⭐</p>))}
         </div>
         {!hideButton && (
           <button onClick={removeFromCart}>Remove from Cart</button>

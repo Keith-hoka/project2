@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
+import "./SignUp.css";
 import "./Login.css";
 import { auth } from "./firebase";
 
-function Login() {
+function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const history = useHistory();
 
-  const handleSignIn = (event) => {
+  const handleSignUp = (event) => {
     event.preventDefault();
 
-    auth.signInWithEmailAndPassword(email, password).then((auth) => {
-      history.push("/");
-
-    }).catch(error => alert(error.message));
-
+    if (password === passwordConfirmation){
+      auth.createUserWithEmailAndPassword(email, password).then((auth) => {
+        history.push("/");
+      }).catch(error => alert(error.message));
+    } else {
+      alert("Your password DO NOT match!");
+    }
   };
 
   return (
@@ -26,25 +30,22 @@ function Login() {
       </Link>
 
       <div className="login-container">
-        <h1>Sign-In</h1>
+        <h1>Create Account</h1>
         <form>
           <h5>E-mail</h5>
           <input onChange={event => setEmail(event.target.value)} value={email} type="email" />
           <h5>Password</h5>
           <input onChange={event => setPassword(event.target.value)} value={password} type="password" />
+          <h5>Re-enter Password</h5>
+          <input onChange={event => setPasswordConfirmation(event.target.value)} value={passwordConfirmation} type="password" />
 
-          <button onClick={handleSignIn} type="submit" className="login-signInBtn">Sign-In</button>
+          <button onClick={handleSignUp} className="login-signUpBtn">Create your GAmazon account</button>
         </form>
 
         <p>By signing-in you agree to GAmazon's Conditions of Use & Sale. Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.</p>
-
-        <p className="login-newUser">New to GAmazon?</p>
-        <Link to="/signup">
-          <button className="login-signUpBtn1">Create your GAmazon account</button>
-        </Link>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default SignUp;
