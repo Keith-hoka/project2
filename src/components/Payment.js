@@ -83,24 +83,8 @@ function Payment() {
           </div>
           <div className="payment-address">
             <p>{user?.email}</p>
-            <p>357 king road</p>
+            <p>General Assembly</p>
             <p>Sydney, AU</p>
-          </div>
-        </div>
-
-        <div className="payment-section">
-          <div className="payment-title">
-            <h3>Review Items and Delivery</h3>
-          </div>
-          <div className="payment-items">
-            {cart.map((cartItem) => (
-              <CheckoutProduct
-                id={cartItem.id}
-                title={cartItem.title}
-                image={cartItem.image}
-                price={cartItem.price}
-                rating={cartItem.rating}
-               />))}
           </div>
         </div>
 
@@ -128,6 +112,22 @@ function Payment() {
               </div>
               {error && <div>{error}</div>}
             </form>
+          </div>
+        </div>
+
+        <div className="payment-section">
+          <div className="payment-title">
+            <h3>Review Items and Delivery</h3>
+          </div>
+          <div className="payment-items">
+            {cart.map((cartItem) => (
+              <CheckoutProduct
+                id={cartItem.id}
+                title={cartItem.title}
+                image={cartItem.image}
+                price={cartItem.price}
+                rating={cartItem.rating}
+               />))}
           </div>
         </div>
       </div>
