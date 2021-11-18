@@ -52,6 +52,11 @@
   margin-right: 20px;
 }
 
+.login-facebookLogo {
+  width: 20px;
+  margin-right: 20px;
+}
+
 .login-signInBtn {
   background: #f0c14b;
   border-radius: 2px;

@@ -13,7 +13,9 @@ function Home() {
     db.collection("users").get().then(snapshot => {
       let productsArr = [];
       snapshot.forEach(doc => {
-        productsArr = productsArr.concat(doc.data().products)
+        if (doc.data().products !== undefined){
+          productsArr = productsArr.concat(doc.data().products)
+        }
       })
     setProducts(productsArr);
   })}, []);
@@ -41,7 +43,7 @@ function Home() {
       </AliceCarousel>
 
       <div className="home-row">
-        {products.length > 0 && products.map(
+        { products.map(
           product =>
             (<Product
               id={product.id}

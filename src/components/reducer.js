@@ -1,6 +1,10 @@
+import { UsbOutlined } from "@material-ui/icons";
+import { v1 } from "uuid";
+
 export const initialState = {
   cart: [],
   user: null,
+  products: []
 };
 
 export const getCartTotal = (cart) =>
@@ -9,6 +13,18 @@ export const getCartTotal = (cart) =>
 const reducer = (state, action) => {
   console.log(action);
   switch(action.type) {
+    case "CREATE_PRODUCT":
+      // Grabs everything from the designated array
+      return [...state, {
+        title: action.product.title,
+        image: action.product.image,
+        price: action.product.price,
+        rating: action.product.rating,
+      }];
+    case "REMOVE_PRODUCT":
+      return {
+        
+      }
     case "SET_USER":
      return {
        ...state,

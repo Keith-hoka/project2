@@ -5,6 +5,11 @@ import { Button } from "@material-ui/core";
 import "./Login.css";
 import { auth, provider } from "./firebase";
 import { useStateValue } from "./StateProvider";
+import firebase from "firebase";
+// import { getAuth, signInWithRedirect } from "firebase/auth";
+// import LoginButtons from "./LoginButtons";
+
+var facebookProvider = new firebase.auth.FacebookAuthProvider();
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -36,6 +41,20 @@ function Login() {
       .catch((error) => alert(error.message));
   };
 
+  const faceBookSignIn = () => {
+    auth
+      .signInWithPopup(facebookProvider)
+      .then((result) => {
+        dispatch({
+          type: "SET_USER",
+          user: result.user,
+        });
+
+        history.push("/");
+      })
+      .catch((error) => alert(error.message));
+  };
+
   return (
     <div className="login">
       <Link to="/">
@@ -55,8 +74,12 @@ function Login() {
             <img className="login-googleLogo" src="https://cdn-teams-slug.flaticon.com/google.jpg" alt="" />
             Sign-In With Google
           </Button>
-        </form>
+          <Button className="login-signInBtn" onClick={faceBookSignIn}>
+            <img className="login-facebookLogo" src="http://assets.stickpng.com/thumbs/584ac2d03ac3a570f94a666d.png" alt='' />
+            Sign-In With Facebook
+          </Button>
 
+        </form>
         <p>By signing-in you agree to GAmazon's Conditions of Use & Sale. Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.</p>
 
         <p className="login-newUser">New to GAmazon?</p>
