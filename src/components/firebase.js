@@ -18,16 +18,4 @@ const db = firebaseApp.firestore();
 const auth = firebaseApp.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
-// firebaseApp.auth().createUserWithEmailAndPassword('test@email.com', 'twenty')
-//   .then((userCredential) => {
-//     // Signed in
-//     var user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     var errorCode = error.code;
-//     var errorMessage = error.message;
-//     // ..
-//   });
-
 export { db, auth, provider };

@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
 import "./Login.css";
-import { auth } from "./firebase";
+import { auth, provider } from "./firebase";
+import { useStateValue } from "./StateProvider";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+  const [{}, dispatch] = useStateValue();
 
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -17,6 +20,20 @@ function Login() {
 
     }).catch(error => alert(error.message));
 
+  };
+
+  const signIn = () => {
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        dispatch({
+          type: "SET_USER",
+          user: result.user,
+        });
+
+        history.push("/");
+      })
+      .catch((error) => alert(error.message));
   };
 
   return (
@@ -34,6 +51,10 @@ function Login() {
           <input onChange={event => setPassword(event.target.value)} value={password} type="password" />
 
           <button onClick={handleSignIn} type="submit" className="login-signInBtn">Sign-In</button>
+          <Button className="login-signInBtn" onClick={signIn}>
+            <img className="login-googleLogo" src="https://cdn-teams-slug.flaticon.com/google.jpg" alt="" />
+            Sign-In With Google
+          </Button>
         </form>
 
         <p>By signing-in you agree to GAmazon's Conditions of Use & Sale. Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.</p>
