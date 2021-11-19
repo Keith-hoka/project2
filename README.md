@@ -36,6 +36,7 @@ MM/YY and CVC can be anything
 <li>Product Details Page</li>
 <li>Ability to return products</li>
 <li>Allow user to upload images through Cloudinary</li>
+<li>Use firebase admin for the backend</li>
 
 ### Special thanks
 
