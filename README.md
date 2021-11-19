@@ -40,4 +40,4 @@ MM/YY and CVC can be anything
 
 ### Special thanks
 
-Rowena and Pat, you are awesome and thank you so much for giving me some precious feedbacks.
+Rowena and Pat, you are awesome and thank you so much for giving us some precious feedbacks.
