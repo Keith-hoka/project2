@@ -1,6 +1,7 @@
 # Project 2 (GAmazon) 
 
 It's pronouned "gam - mazon"
+
 Group Project created by Joshua and Keith for their Project 2 at GA
 
 ### Product
