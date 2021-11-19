@@ -1,4 +1,4 @@
-# Project 2 (GAmazon) 
+# Project 2 (GAmazon)
 
 It's pronouned "gam - mazon"
 
@@ -10,7 +10,7 @@ A ecommerce website that allows users to advertise and sell products. Users may 
 
 Users can login through a variety of means, including standard email and password, google and facebook (meta).
 
-Free credit card number: 4242 4242 4242 4242 
+Free credit card number: 4242 4242 4242 4242
 
 MM/YY and CVC can be anything
 
@@ -36,3 +36,7 @@ MM/YY and CVC can be anything
 <li>Product Details Page</li>
 <li>Ability to return products</li>
 <li>Allow user to upload images through Cloudinary</li>
+
+### Special thanks
+
+Rowena and Pat, you are awesome and thank you so much for giving me some precious feedbacks.
