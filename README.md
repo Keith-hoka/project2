@@ -14,6 +14,8 @@ Free credit card number: 4242 4242 4242 4242
 
 MM/YY and CVC can be anything
 
+live demo: https://fir-a4ab6.web.app/
+
 ## Assets Used
 
 <li>React JS</li>
